@@ -8,7 +8,7 @@ x= 0
 @app.route('/', methods = ['POST', 'GET'])
 def index():
     global x
-    sisu = ""
+    sisu = " "
     if request.method == 'POST':
         if x < len(nimekiri):
             sisu = nimekiri[x]
