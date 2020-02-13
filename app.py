@@ -1,23 +1,21 @@
 from flask import Flask, render_template, request, redirect
+from flask_session import Session
 app = Flask(__name__)
 
-lause = 'MARIE UNDER NIKKUS OBLIKATE VAHEL! ARTUR ATSON NIKKUS OBLIKATE VAHEL!'
-nimekiri = lause.split(" ")
-x= 0
+
+
+#lause2 = 'MARIE UNDER NIKKUS OBLIKATE VAHEL! ARTUR ATSON NIKKUS OBLIKATE VAHEL!'
+nimekiri = []
+
 
 @app.route('/', methods = ['POST', 'GET'])
 def index():
-    global x
-    sisu = " "
-    if request.method == 'POST':
-        if x < len(nimekiri):
-            sisu = nimekiri[x]
-            x += 1
-        else:
-            x = 1
-            sisu = nimekiri[0]
 
-    return render_template('index.html', sisu = sisu)
+    if request.method == 'POST':
+        lause = request.form['sisu']
+        nimekiri.append(lause)
+
+    return render_template('index.html', nimekiri = nimekiri)
 
 
 

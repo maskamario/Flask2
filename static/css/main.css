@@ -4,3 +4,9 @@ body {
     text-align: center;
     margin-top: 20%;
     }
+
+table {
+    text-align: center;
+    border: 1px;
+    width: 40%;
+}
