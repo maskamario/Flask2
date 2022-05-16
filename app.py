@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 
 
-#lause2 = 'MARIE UNDER NIKKUS OBLIKATE VAHEL! ARTUR ATSON NIKKUS OBLIKATE VAHEL!'
+
 nimekiri = []
 
 

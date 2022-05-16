@@ -1,3 +1,3 @@
 def Marie_under():
-    nimekiri = ['Marie','Under', 'nussis', 'oblikate', 'vahel']
+    nimekiri = []
     return nimekiri
