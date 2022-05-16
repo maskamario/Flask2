@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Agents App</title>
+{% endblock %}
+
+{% block body %}
+<p>Uue agendi sisestamine</p>
+
+<form action="{{ url_for('sisestamine_success')}}", method = "POST">
+    <p>Nimi <input type = "text" name = "full_name" /></p>
+    <p>Koodnimi <input type = "text" name = "code_name" /></p>
+    <p>Telefoni number <input type = "text" name = "phone_number" /></p>
+    <p><input type = "submit" value = "Sisesta agent" /></p>
+</form>
+
+
+{% endblock %}

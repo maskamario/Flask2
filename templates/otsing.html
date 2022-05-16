@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>App</title>
+{% endblock %}
+
+{% block body %}
+
+<p>Näita agente</p>
+
+
+<form action="{{ url_for('index')}}", method="GET">
+
+  <input type="text" name="sisu" id="sisu">
+  <input type="submit" value="Näita agente">
+</form>
+
+<br>
+<table>
+  {% for row in fulldata %}
+  <tr>
+    <td>{{ row }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+
+{% endblock %}

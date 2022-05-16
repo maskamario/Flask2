@@ -31,14 +31,27 @@ def insert_user(firstname, lastname, password):
     data_request = cursor.fetchall()
     print ("Result of data entry: ", data_request)
 
+def insert_agent(full_name, codename, phone_number):
+    rownumber = int(get_table_rows("agents")) + 1
+    cursor.execute(f"INSERT INTO agents VALUES(?, ?, ?, ?)", (rownumber, full_name, codename, phone_number))
+    connection.commit()
+    cursor.execute ( f"SELECT * FROM agents WHERE agent_id = {rownumber}")
+    data_request = cursor.fetchall()
+    return ("Result of data entry: ", data_request)
+
 #insert_user ('Mirlu', 'Masauskas', 'openpassword')
 
 def get_all_data_from_table(table_name):
     cursor.execute(f"SELECT * FROM {table_name}")
+    return cursor.fetchall()
+
+
+def print_all_data_from_table(table_name):
+    cursor.execute(f"SELECT * FROM {table_name}")
     for i in cursor.fetchall():
         print(i)
 
-get_all_data_from_table("users")
+#get_all_data_from_table("users")
 #insert_user ('Mirlu', 'Masauskas', 'openpassword')
 
 def delete_all_from_table (table_name):

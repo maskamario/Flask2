@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Agents App</title>
+{% endblock %}
+
+{% block body %}
+
+<p>Agent sisestatud:</p>
+{{ agent }}
+
+<a href="{{ url_for('index') }}">Pealeht</a>
+
+
+{% endblock %}
