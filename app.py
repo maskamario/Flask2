@@ -30,11 +30,14 @@ def sisestamine_success():
 
     return render_template('sisestamine_success.html', agent = agent)
 
-@app.route('/otsing', methods = ['GET'])
+@app.route('/otsing', methods = ['POST', 'GET'])
 def otsing():
-    full_data = datastuff.get_all_data_from_table("agents")
+    if request.method == 'POST':
+        full_data = datastuff.get_all_data_from_table("agents")
+        return render_template('otsing.html', full_data = full_data)
+    else:
+        return render_template('otsing.html')
 
-    return render_template('otsing.html')
 
 if __name__ == "__main__":
     app.run()

@@ -1,6 +1,7 @@
 import sqlite3
+import json
 
-connection = sqlite3.connect('joint.db')
+connection = sqlite3.connect('joint.db', check_same_thread=False)
 
 cursor = connection.cursor()
 
@@ -36,7 +37,7 @@ def insert_agent(full_name, codename, phone_number):
     cursor.execute(f"INSERT INTO agents VALUES(?, ?, ?, ?)", (rownumber, full_name, codename, phone_number))
     connection.commit()
     cursor.execute ( f"SELECT * FROM agents WHERE agent_id = {rownumber}")
-    data_request = cursor.fetchall()
+    data_request = json.dumps(cursor.fetchall())
     return ("Result of data entry: ", data_request)
 
 #insert_user ('Mirlu', 'Masauskas', 'openpassword')
